@@ -1,4 +1,4 @@
-sebs
-====
+VizMake
+=======
 
-A stealthy project ...
+Visualize `make`!
