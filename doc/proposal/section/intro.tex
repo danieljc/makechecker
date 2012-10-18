@@ -1,3 +1,37 @@
 \section{Introduction}
 
-\cite{Dewitt1990}
+\cite{Tamrawi2012}
+
+Project build management is important.
+Build configuration files, like Makefile becomes complex as the project grows.
+Build configuration files are hard to understand by human beings.
+Hard to debug, not interactive debugger.
+Hard to maintain, oftentimes developers keep adding new rules, but old rules
+remain in makefiles. They don't have confidence to delete old rules.
+
+Visualization can help understand build management. 
+There are some projects that visualize build configuration files.
+They visualize dependency graph.
+But most of them rely on static analysis of makefile.
+This doesn't work quite well, build process is dynamic, and highly depends on
+runtime environment.
+Complex implicit rules, weird syntax, for loops/condition branches ...
+
+visualize what would really happen at runtime. 
+let build program parse configuration files, but don't really build the project.
+we only want the real dependency graph and other related runtime infomation.
+Can slightly modify build program, or better, build program verbose output.
+Start with makefile, but can be generalize to other build system.
+we do visualization in different styles for different application.
+
+What would be done:
+1. Trace data from make -p -n. 
+2. Visualize in 3 styles using d3: network, chord, indented tree
+   - http://bl.ocks.org/1153292 (network) -- incremental development, small projects
+   - http://www.tips-for-excel.com/MCFC/Passes.html (chord) -- dependency
+   - http://bl.ocks.org/1093025 (indented tree) -- component, hierarchy
+====> 1 + 2: a usable tool, vizmake -> automated visualization in browser
+3. Case study on real systems (e.g., linux, mysql, condor ...): debugging,
+   refactoring, component analysis
+4. More: find real bugs, real refactoring, interaction (filter, query,
+   annotation, related ...)
